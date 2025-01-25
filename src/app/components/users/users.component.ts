@@ -2,9 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { MockApiService } from 'src/app/services/mock-api.service';
-import { UsersListResponse } from 'src/app/types/users-list-response.type';
 import { IonButton } from '@ionic/angular/standalone';
-import { IUser } from 'src/app/interfaces/user.interface';
+import { IUser } from 'src/app/interfaces/user/user.interface';
+import { UsersListResponse } from 'src/app/types/users-list-response.type';
 
 
 @Component({
@@ -17,10 +17,10 @@ export class UsersComponent implements OnInit {
 
   users$: Observable<UsersListResponse> = of([]);
 
-  private readonly _mockApiService = inject(MockApiService)
+  // private readonly _mockApiService = inject(MockApiService)
 
   ngOnInit() {
-    this.users$ = this._mockApiService.getUsers();
+    // this.users$ = this._mockApiService.getUsers();
   }
 
   showUserInfoDetails(user: IUser) {

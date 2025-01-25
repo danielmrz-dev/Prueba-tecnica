@@ -1,0 +1,24 @@
+<div class="posts">
+  <div class="posts__title-and-filter">
+    <h2 class="posts__title">Posts List</h2>
+    
+  </div>
+
+  <!-- <div *ngFor="let post of (postsWithUsers$ | async)" class="posts__post-info">
+    <p class="posts__post-info-title">Post id: {{ post.id }}</p>
+    <p class="posts__post-info-title">Posted by: {{ post.username }}</p>
+    <p class="posts__post-info-title">Posted by: {{ post.name }}</p>
+    <ion-button class="posts__post-info-button" size="small">Read Post</ion-button>
+  </div> -->
+  <div *ngFor="let post of (postsWithUsers$ | async)" class="posts__post-info">
+    <p class="posts__post-info-title">
+      Posted by:
+      <span>{{ post.name }}</span>
+    </p>
+    <p class="posts__post-info-title">
+      Title:
+      <span>{{ post.title }}</span>
+    </p>
+    <!-- <ion-button class="posts__post-info-button" size="small">Read Post</ion-button> -->
+  </div>
+</div>
