@@ -5,6 +5,8 @@ import { MockApiService } from 'src/app/services/mock-api.service';
 import { IonButton, IonSpinner } from '@ionic/angular/standalone';
 import { IUser } from 'src/app/interfaces/user/user.interface';
 import { UsersListResponse } from 'src/app/types/users-list-response.type';
+import { ModalService } from 'src/app/services/modal.service';
+import { ModalComponent } from '../modal/modal.component';
 
 
 @Component({
@@ -17,7 +19,8 @@ export class UsersComponent implements OnInit {
 
   users$: Observable<UsersListResponse> = of([]);
 
-  private readonly _mockApiService = inject(MockApiService)
+  private readonly _mockApiService = inject(MockApiService);
+  private readonly _modalService = inject(ModalService);
 
   ngOnInit() {
     this.users$ = this._mockApiService.getUsers();
@@ -25,8 +28,11 @@ export class UsersComponent implements OnInit {
 
   showUserInfoDetails(user: IUser) {
     console.log(user);
-    
-    // implementar um dialog e enviar esse usuario
+    this.openModal()
+  }
+
+  async openModal() {
+    await this._modalService.openModal();
   }
 
 }
