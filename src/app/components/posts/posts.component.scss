@@ -2,6 +2,11 @@
 
 .posts {
     padding: 0 2rem 2rem;
+    &__title-and-filter {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+    }
     &__title {
         font-weight: bold;
     }

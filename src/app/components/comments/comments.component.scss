@@ -1,0 +1,51 @@
+@use '../../../scss/variables' as var;
+
+.comments {
+    padding: 0 2rem 2rem;
+    &__title-and-filter {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+    }
+    &__title {
+        font-weight: bold;
+    }
+    &__comment-info {
+        display: grid;
+        align-items: center;
+        gap: 1rem;
+        background-color: var.$White;
+        padding: 1rem;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        border-left: 5px solid var.$Green;
+        box-shadow: 0 2px 6px 0 #2b393918;
+        &-title {
+            color: var.$Dark-Green;
+            font-weight: bold;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            span {
+                color: var.$Very-Dark-Grey;
+                font-weight: 300;
+                font-style: italic;
+                text-transform: capitalize;
+            }
+            &:nth-child(2) {
+                flex-direction: column;
+                align-items: start;
+                gap: 0.5rem;
+                span {
+                    font-weight: 500;
+                    font-style: normal;
+                }
+            }
+        }
+    }
+    ion-button {
+        width: fit-content;
+        justify-self: end;
+    }
+}

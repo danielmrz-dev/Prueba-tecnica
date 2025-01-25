@@ -1,24 +1,36 @@
 <div class="posts">
   <div class="posts__title-and-filter">
     <h2 class="posts__title">Posts List</h2>
-    
+    <ion-list>
+      <ion-item>
+        <ion-select 
+          aria-label="User" 
+          interface="popover" 
+          placeholder="Filter posts by user"
+          (ionChange)="showFilteredUsers($event)"
+        >
+          <ion-select-option value="all">All users</ion-select-option>
+          <ion-select-option 
+            *ngFor="let user of usersList$ | async" [value]="user.id">
+            {{ user.name }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
   </div>
-
-  <!-- <div *ngFor="let post of (postsWithUsers$ | async)" class="posts__post-info">
-    <p class="posts__post-info-title">Post id: {{ post.id }}</p>
-    <p class="posts__post-info-title">Posted by: {{ post.username }}</p>
-    <p class="posts__post-info-title">Posted by: {{ post.name }}</p>
-    <ion-button class="posts__post-info-button" size="small">Read Post</ion-button>
-  </div> -->
-  <div *ngFor="let post of (postsWithUsers$ | async)" class="posts__post-info">
-    <p class="posts__post-info-title">
-      Posted by:
-      <span>{{ post.name }}</span>
-    </p>
-    <p class="posts__post-info-title">
-      Title:
-      <span>{{ post.title }}</span>
-    </p>
-    <!-- <ion-button class="posts__post-info-button" size="small">Read Post</ion-button> -->
-  </div>
+  
+  @for (post of filteredPostsByUser; track post.id) {
+    <div class="posts__post-info">
+      <p class="posts__post-info-title">
+        Posted by:
+        <span>{{ post.name }}</span>
+      </p>
+      <p class="posts__post-info-title">
+        Title:
+        <span>{{ post.title }}</span>
+      </p>
+    </div>
+  } @empty {
+    <ion-spinner color="medium" name="bubbles"></ion-spinner>
+  }
 </div>

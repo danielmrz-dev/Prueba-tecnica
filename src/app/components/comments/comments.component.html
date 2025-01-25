@@ -1,3 +1,22 @@
-<p>
-  comments works!
-</p>
+<div class="comments">
+  <div class="comments__title-and-filter">
+    <h2 class="comments__title">Comments List</h2>
+  </div>
+  
+  @for (comment of commentsList$ | async; track comment) {
+    <div class="comments__comment-info">
+      <p class="comments__comment-info-title">
+        Email Address:
+        <span> {{ comment.email }} </span>
+      </p>
+      <p class="comments__comment-info-title">
+        Title:
+        <span> {{ comment.name }} </span>
+      </p>
+
+      <ion-button size="small">Read comment</ion-button>
+    </div>
+  } @empty {
+    <ion-spinner color="medium" name="bubbles"></ion-spinner>
+  }
+</div>
