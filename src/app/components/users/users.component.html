@@ -1,0 +1,7 @@
+<div class="users">
+    <h2 class="users__title">Users List</h2>
+    <div *ngFor="let user of (users$ | async)" class="users__user-info">
+      <span class="users__user-info-name">{{ user.FirstName + ' ' + user.LastName }} </span>
+      <ion-button class="users__user-info-button" size="small" (click)="showUserInfoDetails(user)">Details</ion-button>
+    </div>
+</div>
