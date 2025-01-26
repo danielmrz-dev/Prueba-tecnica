@@ -1,3 +1,52 @@
-ion-modal {
-    width: 100px;
+.dialog {
+    min-width: 340px;
+    &__content {
+        display: flex;
+        flex-direction: column;
+    }
+    &__content-line-container {
+        display: grid;
+    }
+    &__content-line {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: .25rem;
+        border-radius: 5px;
+        &:nth-child(odd) {
+            background-color: #80808011;
+        }
+        &--comment-text {
+            border-radius: 5px;
+            padding: .25rem;
+            display: flex;
+            flex-direction: column;
+            background-color: #80808011;
+            span {
+                text-indent: 10px;
+                text-align: justify;
+                font-style: italic;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .dialog {
+        min-width: 560px;
+        &__content-line {
+            font-size: 1.25rem;
+            padding: .5rem;
+            &--comment-text {
+                font-size: 1.25rem;
+                padding: .5rem;
+                gap: 0.75rem;
+            }
+        }
+        ion-button {
+            font-size: 1rem;
+        }
+    }
+
 }

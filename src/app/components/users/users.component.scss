@@ -2,12 +2,6 @@
 
 .users {
     padding: 1rem 3rem;
-    ion-input {
-        padding-top: 1rem;
-        font-size: 1.25rem;
-        background-color: #fff;
-        border-color: var.$Green;
-    }
     &__title {
         font-weight: bold;
     }
@@ -30,6 +24,25 @@
             padding: .5rem;
             border-radius: 10px;
             text-transform: capitalize;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .users {
+        max-width: 660px;
+        margin: auto;
+        &__title {
+            font-size: 2rem;
+        }
+        &__user-info {
+            margin-bottom: 20px;
+            &-name {
+                font-size: 1.25rem;
+            }
+            &-button {
+                font-size: 1.1rem;
+            }
         }
     }
 }

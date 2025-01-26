@@ -1,20 +1,19 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { IonModal } from '@ionic/angular/standalone';
-import { ModalService } from 'src/app/services/modal.service';
+import { CommonModule } from '@angular/common';
+import { Component, inject} from '@angular/core';
+import {
+  MAT_DIALOG_DATA,
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+} from '@angular/material/dialog';
+import { IonButton } from '@ionic/angular/standalone'
 
 @Component({
   selector: 'app-modal',
-  imports: [IonModal],
+  imports: [MatDialogContent, MatDialogActions, MatDialogClose, CommonModule, IonButton],
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss'],
 })
-export class ModalComponent  implements OnInit {
-
-  isOpen: boolean = true
-  private readonly _modalService = inject(ModalService)
-
-  ngOnInit() {
-    
-  }
-
+export class ModalComponent {
+  readonly data = inject(MAT_DIALOG_DATA);
 }
