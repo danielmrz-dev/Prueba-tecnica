@@ -3,20 +3,27 @@
     <h2 class="comments__title">Comments List</h2>
   </div>
   
-  @for (comment of commentsList$ | async; track comment) {
-    <div class="comments__comment-info">
-      <p class="comments__comment-info-title">
-        Email Address:
-        <span> {{ comment.email }} </span>
-      </p>
-      <p class="comments__comment-info-title">
-        Title:
-        <span> {{ comment.name }} </span>
-      </p>
-
-      <ion-button size="small" (click)="openComment(comment)">Read comment</ion-button>
-    </div>
-  } @empty {
-    <ion-spinner color="medium" name="bubbles"></ion-spinner>
+  @if (!errorMessage) {
+    @for (comment of commentsList$ | async; track comment) {
+      <div class="comments__comment-info">
+        <p class="comments__comment-info-title">
+          Email Address:
+          <span> {{ comment.email }} </span>
+        </p>
+        <p class="comments__comment-info-title">
+          Title:
+          <span> {{ comment.name }} </span>
+        </p>
+  
+        <ion-button size="small" (click)="openComment(comment)">Read comment</ion-button>
+      </div>
+    } @empty {
+      <ion-spinner color="medium" name="bubbles"></ion-spinner>
+    }
   }
+
+  @if (errorMessage) {
+    <h2 class="error-message"> {{ errorMessage }} </h2>
+  }
+
 </div>

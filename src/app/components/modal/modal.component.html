@@ -1,5 +1,6 @@
 <div class="dialog">
     <mat-dialog-content class="dialog__content">
+
         <ng-container *ngIf="data.selectedUser">
             <h2 mat-dialog-title>User details</h2>
             <div class="dialog__content-line-container">
@@ -29,6 +30,7 @@
                 </p>
             </div>
         </ng-container>
+
         <ng-container *ngIf="data.body">
             <h2 mat-dialog-title>Comment Details</h2>
             <div class="dialog__content-line-container">
@@ -43,6 +45,7 @@
                 </p>
             </div>
         </ng-container>
+        
     </mat-dialog-content>
     <mat-dialog-actions>
         <ion-button mat-dialog-close>Close</ion-button>

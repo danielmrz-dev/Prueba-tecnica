@@ -19,18 +19,24 @@
     </ion-list>
   </div>
   
-  @for (post of filteredPostsByUser; track post.id) {
-    <div class="posts__post-info">
-      <p class="posts__post-info-title">
-        Posted by:
-        <span>{{ post.name }}</span>
-      </p>
-      <p class="posts__post-info-title">
-        Title:
-        <span>{{ post.title }}</span>
-      </p>
-    </div>
-  } @empty {
-    <ion-spinner color="medium" name="bubbles"></ion-spinner>
+  @if (!errorMessage) {
+    @for (post of filteredPostsByUser; track post.id) {
+      <div class="posts__post-info">
+        <p class="posts__post-info-title">
+          Posted by:
+          <span>{{ post.name }}</span>
+        </p>
+        <p class="posts__post-info-title">
+          Title:
+          <span>{{ post.title }}</span>
+        </p>
+      </div>
+    } @empty {
+      <ion-spinner color="medium" name="bubbles"></ion-spinner>
+    }
+  } 
+
+  @if (errorMessage) {
+    <h2 class="error-message"> {{ errorMessage }} </h2>
   }
 </div>

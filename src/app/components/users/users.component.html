@@ -1,11 +1,18 @@
 <div class="users">
     <h2 class="users__title">Users List</h2>
-    @for (user of users$ | async; track user) {
-      <div class="users__user-info">
-        <span class="users__user-info-name">{{ user.name }} </span>
-        <ion-button class="users__user-info-button" size="small" (click)="showUserInfoDetails(user)">Details</ion-button>
-      </div>
-    } @empty {
-      <ion-spinner name="bubbles" color="medium"></ion-spinner>
+    @if (!errorMessage) {
+      @for (user of users$ | async; track user) {
+        <div class="users__user-info">
+          <span class="users__user-info-name">{{ user.name }} </span>
+          <ion-button class="users__user-info-button" size="small" (click)="showUserInfoDetails(user)">Details</ion-button>
+        </div>
+      } @empty {
+        <ion-spinner name="bubbles" color="medium"></ion-spinner>
+      }
     }
+
+    @if (errorMessage) {
+      <h2 class="error-message"> {{ errorMessage }} </h2>
+    }
+
 </div>
